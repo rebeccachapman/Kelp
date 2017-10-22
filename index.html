@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    <title>Leaflet Map</title>
+    <title>Kelp Map</title>
     <!-- External Stylesheets (we keep integrity to avoid security issues)-->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
@@ -14,18 +14,19 @@
     <script src="https://unpkg.com/esri-leaflet@2.1.1/dist/esri-leaflet.js"
     integrity="sha512-ECQqaYZke9cSdqlFG08zSkudgrdF6I1d8ViSa7I3VIszJyVqw4ng1G8sehEXlumdMnFYfzY0tMgdQa4WCs9IUw=="
     crossorigin=""></script>
-	
+  <!-- Load Leaflet AJAX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
 	</head>
 <body>
     <!-- Our web map and content will go here -->
-<div id="mapid"></div>
+<div id="mapid" style="width: 600px; height: 1000px"></div>
 <script>
 	//set variable for map and initialize
-	var mymap = L.map('mapid')
-	L.esri.basemapLayer("Topographic").addTo(map);
-	L.esri.dynamicMapLayer("https://tigerweb.geo.census.gov/arcgis/rest/services/Generalized_ACS2016/Urban/MapServer", {
-	opacity : 1
-	}).addTo(mymap);
+	var mymap = L.map('mapid').setView([36.8, -121.5], 7)
+	//var basemap = L.esri.basemapLayer("Topographic").addTo(mymap);
+	var dark = new L.TileLayer('https://api.mapbox.com/styles/v1/bexchapman/cj928jtp1lff42qlwa676c8kt/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmV4Y2hhcG1hbiIsImEiOiJWVHM1cWRBIn0.65Nc05pc8Ud8G0i6WiOHnA').addTo(mymap);
+	var CAman = new L.GeoJSON.AJAX('http://chapmanrebecca.com/Kelp/data/MANCAKelpAdmin.geojson').addTo(mymap);
+	//var CAman = new L.TileLayer('bexchapman.5bbsq6r7').addTo(mymap);
 </script>
 
 
