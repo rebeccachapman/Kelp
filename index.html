@@ -27,11 +27,11 @@
 	var dark = new L.TileLayer('https://api.mapbox.com/styles/v1/bexchapman/cj928jtp1lff42qlwa676c8kt/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmV4Y2hhcG1hbiIsImEiOiJWVHM1cWRBIn0.65Nc05pc8Ud8G0i6WiOHnA').addTo(mymap);
 	var CAman = new L.GeoJSON.AJAX('http://chapmanrebecca.com/Kelp/data/MANCAKelpAdmin.geojson',{style: function(feature) {
 		    	switch(feature.properties.Status) {
-		    		case "OPEN": return {color: "#ffffcc", fill: false};
-		    		case "CLOSED": return {color: "#810f7c", fill: true, fillopacity: 1.0};
-		    		case "LEASED": return {color: "#2c7fb8", fill: false};
-		    		case "LEASE ONLY": return {color: "#41b6c4", fill: false};
-		    		case "LEASABLE": return {color: "#a1dab4", fill: false};
+		    		case "OPEN": return {color: "#ffffcc", weight: 1, fill: false};
+		    		case "CLOSED": return {color: "#810f7c",weight: 1, fill: true, fillopacity: 1.0};
+		    		case "LEASED": return {color: "#2c7fb8",weight: 1, fill: false};
+		    		case "LEASE ONLY": return {color: "#41b6c4",weight: 1, fill: false};
+		    		case "LEASABLE": return {color: "#a1dab4",weight: 1, fill: false};
 		    	}
 		    }
 		    }).addTo(mymap);
