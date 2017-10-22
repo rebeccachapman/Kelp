@@ -19,7 +19,7 @@
 	</head>
 <body>
     <!-- Our web map and content will go here -->
-<div id="mapid" style="width: 600px; height: 1000px"></div>
+<div id="mapid" style="width: 600px; height: 800px"></div>
 <script>
 	//set variable for map and initialize
 	var mymap = L.map('mapid').setView([34.8, -120.5], 8)
@@ -35,6 +35,7 @@
 		    	}
 		    }
 		    }).addTo(mymap);
+
 	var CAMPA = new L.GeoJSON.AJAX('http://chapmanrebecca.com/Kelp/data/CAMPA.geojson', {style: {color: "#64100c",weight: 1, fill: true, fillOpacity: 1}}).addTo(mymap);
 	var FMPA = new L.GeoJSON.AJAX('http://chapmanrebecca.com/Kelp/data/FMPA.geojson', {style: {color: "#64100c",weight: 1, fill: true, fillOpacity: 1}}).addTo(mymap);
 </script>
